@@ -58,3 +58,61 @@
     }
   }
 }
+
+@layer components {
+  .prose-shift {
+    max-width: 42rem;
+  }
+
+  .prose-shift p {
+    margin-top: 1.05rem;
+    line-height: 1.65;
+    color: var(--color-ink);
+  }
+
+  .prose-shift h2 {
+    margin-top: 2.25rem;
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
+
+  .prose-shift h3 {
+    margin-top: 1.5rem;
+    font-size: 1.15rem;
+    line-height: 1.35;
+  }
+
+  .prose-shift ul,
+  .prose-shift ol {
+    margin-top: 0.85rem;
+    padding-left: 1.25rem;
+  }
+
+  .prose-shift ul {
+    list-style: disc;
+  }
+
+  .prose-shift ol {
+    list-style: decimal;
+  }
+
+  .prose-shift li {
+    margin-top: 0.4rem;
+    line-height: 1.6;
+  }
+
+  .prose-shift a {
+    color: var(--color-copper-deep);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .prose-shift strong {
+    font-weight: 600;
+  }
+
+  .prose-shift code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.875em;
+  }
+}

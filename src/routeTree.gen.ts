@@ -11,9 +11,16 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AvifToJpgRouteImport } from './routes/avif-to-jpg'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as GuideRouteImport } from './routes/guide'
+import { Route as IphoneRouteImport } from './routes/iphone'
+import { Route as JpgToWebpRouteImport } from './routes/jpg-to-webp'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as WebpVsAvifRouteImport } from './routes/webp-vs-avif'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -23,6 +30,36 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AvifToJpgRoute = AvifToJpgRouteImport.update({
+  id: '/avif-to-jpg',
+  path: '/avif-to-jpg',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuideRoute = GuideRouteImport.update({
+  id: '/guide',
+  path: '/guide',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IphoneRoute = IphoneRouteImport.update({
+  id: '/iphone',
+  path: '/iphone',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JpgToWebpRoute = JpgToWebpRouteImport.update({
+  id: '/jpg-to-webp',
+  path: '/jpg-to-webp',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -40,43 +77,113 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WebpVsAvifRoute = WebpVsAvifRouteImport.update({
+  id: '/webp-vs-avif',
+  path: '/webp-vs-avif',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/avif-to-jpg': typeof AvifToJpgRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/guide': typeof GuideRoute
+  '/iphone': typeof IphoneRoute
+  '/jpg-to-webp': typeof JpgToWebpRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/webp-vs-avif': typeof WebpVsAvifRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/avif-to-jpg': typeof AvifToJpgRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/guide': typeof GuideRoute
+  '/iphone': typeof IphoneRoute
+  '/jpg-to-webp': typeof JpgToWebpRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/webp-vs-avif': typeof WebpVsAvifRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/avif-to-jpg': typeof AvifToJpgRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/guide': typeof GuideRoute
+  '/iphone': typeof IphoneRoute
+  '/jpg-to-webp': typeof JpgToWebpRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/webp-vs-avif': typeof WebpVsAvifRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/privacy' | '/sitemap.xml' | '/terms'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/avif-to-jpg'
+    | '/contact'
+    | '/faq'
+    | '/guide'
+    | '/iphone'
+    | '/jpg-to-webp'
+    | '/privacy'
+    | '/sitemap.xml'
+    | '/terms'
+    | '/webp-vs-avif'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/privacy' | '/sitemap.xml' | '/terms'
-  id: '__root__' | '/' | '/about' | '/privacy' | '/sitemap.xml' | '/terms'
+  to:
+    | '/'
+    | '/about'
+    | '/avif-to-jpg'
+    | '/contact'
+    | '/faq'
+    | '/guide'
+    | '/iphone'
+    | '/jpg-to-webp'
+    | '/privacy'
+    | '/sitemap.xml'
+    | '/terms'
+    | '/webp-vs-avif'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/avif-to-jpg'
+    | '/contact'
+    | '/faq'
+    | '/guide'
+    | '/iphone'
+    | '/jpg-to-webp'
+    | '/privacy'
+    | '/sitemap.xml'
+    | '/terms'
+    | '/webp-vs-avif'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AvifToJpgRoute: typeof AvifToJpgRoute
+  ContactRoute: typeof ContactRoute
+  FaqRoute: typeof FaqRoute
+  GuideRoute: typeof GuideRoute
+  IphoneRoute: typeof IphoneRoute
+  JpgToWebpRoute: typeof JpgToWebpRoute
   PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
+  WebpVsAvifRoute: typeof WebpVsAvifRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -93,6 +200,48 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/avif-to-jpg': {
+      id: '/avif-to-jpg'
+      path: '/avif-to-jpg'
+      fullPath: '/avif-to-jpg'
+      preLoaderRoute: typeof AvifToJpgRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guide': {
+      id: '/guide'
+      path: '/guide'
+      fullPath: '/guide'
+      preLoaderRoute: typeof GuideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/iphone': {
+      id: '/iphone'
+      path: '/iphone'
+      fullPath: '/iphone'
+      preLoaderRoute: typeof IphoneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jpg-to-webp': {
+      id: '/jpg-to-webp'
+      path: '/jpg-to-webp'
+      fullPath: '/jpg-to-webp'
+      preLoaderRoute: typeof JpgToWebpRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -116,15 +265,29 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/webp-vs-avif': {
+      id: '/webp-vs-avif'
+      path: '/webp-vs-avif'
+      fullPath: '/webp-vs-avif'
+      preLoaderRoute: typeof WebpVsAvifRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AvifToJpgRoute: AvifToJpgRoute,
+  ContactRoute: ContactRoute,
+  FaqRoute: FaqRoute,
+  GuideRoute: GuideRoute,
+  IphoneRoute: IphoneRoute,
+  JpgToWebpRoute: JpgToWebpRoute,
   PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
+  WebpVsAvifRoute: WebpVsAvifRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
