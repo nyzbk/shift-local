@@ -158,6 +158,13 @@ function GuidePage() {
           JPEG. Cap max width on old phones. Download tries the Share sheet. Full notes:{" "}
           <Link to="/iphone">iPhone photos</Link>. Questions: <Link to="/faq">FAQ</Link>.
         </p>
+        <h2>When the convert worked and the other person still cannot open it</h2>
+        <p>
+          That is a delivery job, not a slider job. Chat recodes frames:{" "}
+          <Link to="/whatsapp">WhatsApp</Link>. Mail clients that will not paint AVIF, plus Gmail’s 25 MB cap:{" "}
+          <Link to="/email">email</Link>. Chrome on a phone is not the shop WebView:{" "}
+          <Link to="/android">Android</Link>.
+        </p>
         <ConvertCta label="Convert a file now" />
       </Prose>
     </AppShell>
