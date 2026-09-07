@@ -32,6 +32,18 @@ export function HowItWorks() {
         <Link to="/webp-vs-avif" className="text-copper-deep underline underline-offset-4">
           WebP vs AVIF
         </Link>
+        . Delivery ceilings:{" "}
+        <Link to="/whatsapp" className="text-copper-deep underline underline-offset-4">
+          WhatsApp
+        </Link>
+        ,{" "}
+        <Link to="/email" className="text-copper-deep underline underline-offset-4">
+          email
+        </Link>
+        ,{" "}
+        <Link to="/android" className="text-copper-deep underline underline-offset-4">
+          Android
+        </Link>
         .
       </p>
       <ol className="mt-6 space-y-6">
