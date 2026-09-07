@@ -1,4 +1,6 @@
-export const FAQ = [
+export type FaqItem = { q: string; a: string };
+
+export const FAQ: readonly FaqItem[] = [
   {
     q: "Does Shift upload my images to convert them?",
     a: "No. Shift never posts your files to a conversion server. JPG, PNG and WebP encode with this tab’s Canvas (createImageBitmap + toBlob). AVIF encode uses a local WebAssembly codec (jSquash / libavif) loaded as a static asset from this site — not a third-party API. You can go offline after the page and WASM have loaded and still convert.",
@@ -55,4 +57,77 @@ export const FAQ = [
     q: "Who runs Shift and how do I contact you?",
     a: "Shift is a free tool from Ultimatum. Email ultaultimatum@gmail.com (also on the Contact page). Do not email photos you do not want stored in a mailbox — the converter itself does not need email.",
   },
-] as const;
+  {
+    q: "If I send the WebP as a WhatsApp photo, is that the file Shift wrote?",
+    a: "Usually not. Photo send recodes the frame. Your WebP often leaves as their JPEG. Send as a document if the other person must keep the bytes. Shift does not sit inside WhatsApp.",
+  },
+  {
+    q: "Will Gmail show my AVIF in the message body?",
+    a: "Often no. Many mail clients do not paint AVIF inline. Attach JPG if they need to see the picture without downloading. Gmail’s 25 MB cap is on the message, not on Shift.",
+  },
+  {
+    q: "Chrome on my Android encoded AVIF. Why did their phone show a blank?",
+    a: "Their app is probably a WebView or an older Samsung Internet, not the Chrome you used. Native toBlob can also lie and hand you a JPEG named .avif. Trust Shift’s badge. Send WebP or JPG when the other device is unknown.",
+  },
+  {
+    q: "Does Shift strip GPS or bind pages into a PDF?",
+    a: "No. GPS/EXIF wipe is a different tool. Images-to-PDF is a different tool. Shift’s job is codec in this tab.",
+  },
+];
+
+export const whatsappFaq: readonly FaqItem[] = [
+  {
+    q: "They said they got a blurry JPEG. Where is the WebP?",
+    a: "You sent a photo. WhatsApp recoded the frame. Send the Shift file as a document, or convert to JPG on purpose before photo send.",
+  },
+  {
+    q: "Can I send AVIF as a WhatsApp photo?",
+    a: "Do not count on it. Many clients refuse or flatten AVIF in the photo pipe. Document send carries bytes; preview still depends on their app.",
+  },
+  {
+    q: "WhatsApp Desktop grabbed Pictures/*.jpg. Is that my WebP?",
+    a: "No. Point the dialog at Downloads and the Shift file. Pictures is the camera stack.",
+  },
+  {
+    q: "Status or View once — does that keep the codec?",
+    a: "No. Those are delivery modes. They recode or expire. They do not preserve Shift’s bytes.",
+  },
+];
+
+export const emailFaq: readonly FaqItem[] = [
+  {
+    q: "Gmail turned my ZIP of WebP into a Drive link. Did Shift break?",
+    a: "Gmail’s 25 MB attachment cap did. Official help 6584. Split the batch or send JPG. Shift does not talk to Drive.",
+  },
+  {
+    q: "The clerk cannot see the picture in the mail. Do I still send AVIF?",
+    a: "No. Send JPG if they must see it in the thread. AVIF is a file they download, not a preview.",
+  },
+  {
+    q: "Is a ZIP of 40 AVIF files a good email?",
+    a: "Rarely. MIME grows it. Two mails with fewer files beat one Drive surprise.",
+  },
+  {
+    q: "Does Shift send the email for me?",
+    a: "No. It writes a blob in this tab. You attach that blob. Closing the tab discards it if you never saved.",
+  },
+];
+
+export const androidFaq: readonly FaqItem[] = [
+  {
+    q: "The AVIF button is off on my phone. Is Shift broken?",
+    a: "The probe failed: native encode lied or WASM timed out. Convert to WebP. That is the truthful path, not a paywall.",
+  },
+  {
+    q: "Chrome encoded AVIF. The shop app shows nothing.",
+    a: "Shop WebViews lag Chrome. Upload JPG or WebP to that form. Do not argue with a WebView about AVIF.",
+  },
+  {
+    q: "Samsung Internet wrote a file named .avif that opens as JPEG.",
+    a: "Native toBlob lied. Shift checks ftyp/avif magic. If the badge said no, believe it. Re-encode with WASM or pick WebP.",
+  },
+  {
+    q: "Does Add to Home Screen give Shift a codec Android lacks?",
+    a: "No. It is still this website. The probe is the same.",
+  },
+];
