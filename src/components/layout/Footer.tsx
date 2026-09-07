@@ -9,6 +9,9 @@ const COLS = [
       { to: "/jpg-to-webp", label: "JPG to WebP" },
       { to: "/avif-to-jpg", label: "AVIF to JPG" },
       { to: "/iphone", label: "iPhone photos" },
+      { to: "/whatsapp" as const, label: "WhatsApp photos" },
+      { to: "/email" as const, label: "Email attachments" },
+      { to: "/android" as const, label: "Android / Chrome" },
     ],
   },
   {

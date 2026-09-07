@@ -1,11 +1,11 @@
 import { Link } from "@tanstack/react-router";
 
 const NAV = [
-  { to: "/", label: "Convert" },
-  { to: "/guide", label: "Guide" },
-  { to: "/webp-vs-avif", label: "Compare" },
-  { to: "/faq", label: "FAQ" },
-  { to: "/contact", label: "Contact" },
+  { to: "/guide" as const, label: "Guide" },
+  { to: "/whatsapp" as const, label: "WhatsApp" },
+  { to: "/email" as const, label: "Email" },
+  { to: "/android" as const, label: "Android" },
+  { to: "/faq" as const, label: "FAQ" },
 ] as const;
 
 export function Header() {
