@@ -11,8 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AndroidRouteImport } from './routes/android'
 import { Route as AvifToJpgRouteImport } from './routes/avif-to-jpg'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as EmailRouteImport } from './routes/email'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GuideRouteImport } from './routes/guide'
 import { Route as IphoneRouteImport } from './routes/iphone'
@@ -21,6 +23,7 @@ import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as WebpVsAvifRouteImport } from './routes/webp-vs-avif'
+import { Route as WhatsappRouteImport } from './routes/whatsapp'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -32,6 +35,11 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AndroidRoute = AndroidRouteImport.update({
+  id: '/android',
+  path: '/android',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AvifToJpgRoute = AvifToJpgRouteImport.update({
   id: '/avif-to-jpg',
   path: '/avif-to-jpg',
@@ -40,6 +48,11 @@ const AvifToJpgRoute = AvifToJpgRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmailRoute = EmailRouteImport.update({
+  id: '/email',
+  path: '/email',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -82,12 +95,19 @@ const WebpVsAvifRoute = WebpVsAvifRouteImport.update({
   path: '/webp-vs-avif',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WhatsappRoute = WhatsappRouteImport.update({
+  id: '/whatsapp',
+  path: '/whatsapp',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/android': typeof AndroidRoute
   '/avif-to-jpg': typeof AvifToJpgRoute
   '/contact': typeof ContactRoute
+  '/email': typeof EmailRoute
   '/faq': typeof FaqRoute
   '/guide': typeof GuideRoute
   '/iphone': typeof IphoneRoute
@@ -96,12 +116,15 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/webp-vs-avif': typeof WebpVsAvifRoute
+  '/whatsapp': typeof WhatsappRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/android': typeof AndroidRoute
   '/avif-to-jpg': typeof AvifToJpgRoute
   '/contact': typeof ContactRoute
+  '/email': typeof EmailRoute
   '/faq': typeof FaqRoute
   '/guide': typeof GuideRoute
   '/iphone': typeof IphoneRoute
@@ -110,13 +133,16 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/webp-vs-avif': typeof WebpVsAvifRoute
+  '/whatsapp': typeof WhatsappRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/android': typeof AndroidRoute
   '/avif-to-jpg': typeof AvifToJpgRoute
   '/contact': typeof ContactRoute
+  '/email': typeof EmailRoute
   '/faq': typeof FaqRoute
   '/guide': typeof GuideRoute
   '/iphone': typeof IphoneRoute
@@ -125,14 +151,17 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/webp-vs-avif': typeof WebpVsAvifRoute
+  '/whatsapp': typeof WhatsappRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
+    | '/android'
     | '/avif-to-jpg'
     | '/contact'
+    | '/email'
     | '/faq'
     | '/guide'
     | '/iphone'
@@ -141,12 +170,15 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms'
     | '/webp-vs-avif'
+    | '/whatsapp'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/android'
     | '/avif-to-jpg'
     | '/contact'
+    | '/email'
     | '/faq'
     | '/guide'
     | '/iphone'
@@ -155,12 +187,15 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms'
     | '/webp-vs-avif'
+    | '/whatsapp'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/android'
     | '/avif-to-jpg'
     | '/contact'
+    | '/email'
     | '/faq'
     | '/guide'
     | '/iphone'
@@ -169,13 +204,16 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms'
     | '/webp-vs-avif'
+    | '/whatsapp'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AndroidRoute: typeof AndroidRoute
   AvifToJpgRoute: typeof AvifToJpgRoute
   ContactRoute: typeof ContactRoute
+  EmailRoute: typeof EmailRoute
   FaqRoute: typeof FaqRoute
   GuideRoute: typeof GuideRoute
   IphoneRoute: typeof IphoneRoute
@@ -184,6 +222,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
   WebpVsAvifRoute: typeof WebpVsAvifRoute
+  WhatsappRoute: typeof WhatsappRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -202,6 +241,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/android': {
+      id: '/android'
+      path: '/android'
+      fullPath: '/android'
+      preLoaderRoute: typeof AndroidRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/avif-to-jpg': {
       id: '/avif-to-jpg'
       path: '/avif-to-jpg'
@@ -214,6 +260,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/email': {
+      id: '/email'
+      path: '/email'
+      fullPath: '/email'
+      preLoaderRoute: typeof EmailRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -272,14 +325,23 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WebpVsAvifRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/whatsapp': {
+      id: '/whatsapp'
+      path: '/whatsapp'
+      fullPath: '/whatsapp'
+      preLoaderRoute: typeof WhatsappRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AndroidRoute: AndroidRoute,
   AvifToJpgRoute: AvifToJpgRoute,
   ContactRoute: ContactRoute,
+  EmailRoute: EmailRoute,
   FaqRoute: FaqRoute,
   GuideRoute: GuideRoute,
   IphoneRoute: IphoneRoute,
@@ -288,6 +350,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
   WebpVsAvifRoute: WebpVsAvifRoute,
+  WhatsappRoute: WhatsappRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
