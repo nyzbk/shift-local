@@ -97,7 +97,8 @@ function ComparePage() {
         </p>
         <p>
           That is why this page exists as its own URL: the decision is not “which codec is fashionable.” It is “which
-          codec this device can actually write.” Step-by-step encoding is on the <Link to="/guide">guide</Link>. Reverse
+          codec this device can actually write.” Weigh both on the same photo:{" "}
+          <Link to="/compare">compare</Link>. Step-by-step encoding is on the <Link to="/guide">guide</Link>. Reverse
           conversion is <Link to="/avif-to-jpg">AVIF to JPG</Link>. The converter is on the{" "}
           <Link to="/">home page</Link>.
         </p>
