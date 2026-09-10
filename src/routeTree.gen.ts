@@ -14,6 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as AndroidRouteImport } from './routes/android'
 import { Route as AvifToJpgRouteImport } from './routes/avif-to-jpg'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CompareRouteImport } from './routes/compare'
 import { Route as EmailRouteImport } from './routes/email'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GuideRouteImport } from './routes/guide'
@@ -48,6 +49,11 @@ const AvifToJpgRoute = AvifToJpgRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareRoute = CompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EmailRoute = EmailRouteImport.update({
@@ -107,6 +113,7 @@ export interface FileRoutesByFullPath {
   '/android': typeof AndroidRoute
   '/avif-to-jpg': typeof AvifToJpgRoute
   '/contact': typeof ContactRoute
+  '/compare': typeof CompareRoute
   '/email': typeof EmailRoute
   '/faq': typeof FaqRoute
   '/guide': typeof GuideRoute
@@ -124,6 +131,7 @@ export interface FileRoutesByTo {
   '/android': typeof AndroidRoute
   '/avif-to-jpg': typeof AvifToJpgRoute
   '/contact': typeof ContactRoute
+  '/compare': typeof CompareRoute
   '/email': typeof EmailRoute
   '/faq': typeof FaqRoute
   '/guide': typeof GuideRoute
@@ -142,6 +150,7 @@ export interface FileRoutesById {
   '/android': typeof AndroidRoute
   '/avif-to-jpg': typeof AvifToJpgRoute
   '/contact': typeof ContactRoute
+  '/compare': typeof CompareRoute
   '/email': typeof EmailRoute
   '/faq': typeof FaqRoute
   '/guide': typeof GuideRoute
@@ -161,6 +170,7 @@ export interface FileRouteTypes {
     | '/android'
     | '/avif-to-jpg'
     | '/contact'
+    | '/compare'
     | '/email'
     | '/faq'
     | '/guide'
@@ -178,6 +188,7 @@ export interface FileRouteTypes {
     | '/android'
     | '/avif-to-jpg'
     | '/contact'
+    | '/compare'
     | '/email'
     | '/faq'
     | '/guide'
@@ -195,6 +206,7 @@ export interface FileRouteTypes {
     | '/android'
     | '/avif-to-jpg'
     | '/contact'
+    | '/compare'
     | '/email'
     | '/faq'
     | '/guide'
@@ -213,6 +225,7 @@ export interface RootRouteChildren {
   AndroidRoute: typeof AndroidRoute
   AvifToJpgRoute: typeof AvifToJpgRoute
   ContactRoute: typeof ContactRoute
+  CompareRoute: typeof CompareRoute
   EmailRoute: typeof EmailRoute
   FaqRoute: typeof FaqRoute
   GuideRoute: typeof GuideRoute
@@ -260,6 +273,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare': {
+      id: '/compare'
+      path: '/compare'
+      fullPath: '/compare'
+      preLoaderRoute: typeof CompareRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/email': {
@@ -341,6 +361,7 @@ const rootRouteChildren: RootRouteChildren = {
   AndroidRoute: AndroidRoute,
   AvifToJpgRoute: AvifToJpgRoute,
   ContactRoute: ContactRoute,
+  CompareRoute: CompareRoute,
   EmailRoute: EmailRoute,
   FaqRoute: FaqRoute,
   GuideRoute: GuideRoute,
