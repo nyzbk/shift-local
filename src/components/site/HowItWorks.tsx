@@ -32,6 +32,10 @@ export function HowItWorks() {
         <Link to="/webp-vs-avif" className="text-copper-deep underline underline-offset-4">
           WebP vs AVIF
         </Link>
+        . Weigh both on one photo:{" "}
+        <Link to="/compare" className="text-copper-deep underline underline-offset-4">
+          compare
+        </Link>
         . Delivery ceilings:{" "}
         <Link to="/whatsapp" className="text-copper-deep underline underline-offset-4">
           WhatsApp

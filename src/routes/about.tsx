@@ -47,7 +47,8 @@ function About() {
           Ultimatum is a brand-marketing studio. We ship small private utilities next to client work because the
           public tools for “just change the codec” were either upload farms or dishonest about AVIF. Publisher ID for
           this property is <code>ca-pub-7636435144500691</code>. Contact:{" "}
-          <a href="mailto:ultaultimatum@gmail.com">ultaultimatum@gmail.com</a>.
+          <a href="mailto:ultaultimatum@gmail.com">ultaultimatum@gmail.com</a>. Studio home:{" "}
+          <a href="https://ultimatum-hub.vercel.app/">Ultimatum hub</a>.
         </p>
         <p>
           Ultimatum also ships other private utilities. They are separate sites, separate repos, separate AdSense
