@@ -6,6 +6,7 @@ const COLS = [
     title: "Convert",
     links: [
       { to: "/", label: "WebP / AVIF converter" },
+      { to: "/compare" as const, label: "Weigh WebP vs AVIF" },
       { to: "/jpg-to-webp", label: "JPG to WebP" },
       { to: "/avif-to-jpg", label: "AVIF to JPG" },
       { to: "/iphone", label: "iPhone photos" },
@@ -54,7 +55,15 @@ export function Footer() {
             </div>
           ))}
         </div>
-        <p className="mt-8 text-sm text-muted">
+        <p className="mt-8">
+          <a
+            href="https://ultimatum-hub.vercel.app/"
+            className="inline-flex min-h-11 items-center text-sm font-semibold text-copper-deep underline-offset-4 hover:underline"
+          >
+            Ultimatum hub
+          </a>
+        </p>
+        <p className="mt-4 text-sm text-muted">
           Shift · files stay on this device · no upload · no watermark · Ultimatum
         </p>
       </div>
