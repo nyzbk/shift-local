@@ -86,7 +86,11 @@ function Home() {
           <Link to="/webp-vs-avif" className="text-copper-deep underline underline-offset-4">
             WebP vs AVIF
           </Link>{" "}
-          comparison. Going the other way — AVIF you received from a designer, back to JPG for email — is covered on{" "}
+          comparison, or drop the same photo on{" "}
+          <Link to="/compare" className="text-copper-deep underline underline-offset-4">
+            compare
+          </Link>{" "}
+          to weigh WebP and AVIF at one quality. Going the other way — AVIF you received from a designer, back to JPG for email — is covered on{" "}
           <Link to="/avif-to-jpg" className="text-copper-deep underline underline-offset-4">
             AVIF to JPG
           </Link>
