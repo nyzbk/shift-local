@@ -1,11 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 const ORIGIN = "https://shift-local.vercel.app";
-const lastmod = "2026-09-07";
+const lastmod = "2026-09-10";
 const URLS: { path: string; changefreq: string; priority: string }[] = [
   { path: "/", changefreq: "weekly", priority: "1.0" },
   { path: "/guide", changefreq: "weekly", priority: "0.9" },
   { path: "/webp-vs-avif", changefreq: "weekly", priority: "0.9" },
+  { path: "/compare", changefreq: "weekly", priority: "0.9" },
   { path: "/jpg-to-webp", changefreq: "weekly", priority: "0.8" },
   { path: "/avif-to-jpg", changefreq: "weekly", priority: "0.8" },
   { path: "/iphone", changefreq: "weekly", priority: "0.8" },
