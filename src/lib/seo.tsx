@@ -18,6 +18,7 @@ export function JsonLd() {
     applicationCategory: "MultimediaApplication",
     operatingSystem: "Any",
     browserRequirements: "Requires HTML5 Canvas and a modern browser",
+    isAccessibleForFree: true,
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
     description:
       "Convert JPG, PNG, WebP and AVIF in the browser. Batch, quality control, ZIP download. No upload, no signup, no watermark.",
@@ -28,6 +29,13 @@ export function JsonLd() {
       "Batch ZIP in the tab",
       "No server upload",
     ],
+  };
+  const website = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Shift",
+    url: "https://shift-local.vercel.app/",
+    inLanguage: "en",
   };
   const org = {
     "@context": "https://schema.org",
@@ -40,6 +48,7 @@ export function JsonLd() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(app) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(org) }} />
     </>
   );

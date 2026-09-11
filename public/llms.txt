@@ -1,0 +1,39 @@
+# Shift
+
+> Convert JPG, PNG, WebP and AVIF in the browser. Batch, quality, ZIP. No upload.
+
+The public origin is https://shift-local.vercel.app. Operated by Ultimatum. Contact ultaultimatum@gmail.com.
+
+## Tools
+
+* [Convert](https://shift-local.vercel.app) — JPG/PNG/WebP/AVIF in this tab.
+
+## Guides
+
+* [How to convert](https://shift-local.vercel.app/guide) — Steps without an upload API.
+* [WebP vs AVIF](https://shift-local.vercel.app/webp-vs-avif) — What each codec actually does here.
+* [Compare](https://shift-local.vercel.app/compare) — Side-by-side output.
+* [JPG to WebP](https://shift-local.vercel.app/jpg-to-webp) — One job, one codec.
+* [AVIF to JPG](https://shift-local.vercel.app/avif-to-jpg) — Decode when the browser can.
+* [iPhone](https://shift-local.vercel.app/iphone) — Files vs Photos.
+* [WhatsApp](https://shift-local.vercel.app/whatsapp) — Chat recode vs document.
+* [Email](https://shift-local.vercel.app/email) — Attachment size.
+* [Android](https://shift-local.vercel.app/android) — Gallery recompress.
+* [FAQ](https://shift-local.vercel.app/faq) — Privacy and limits.
+
+## Site pages
+
+* [About](https://shift-local.vercel.app/about) — Operator and what this tool refuses to be.
+* [Contact](https://shift-local.vercel.app/contact) — ultaultimatum@gmail.com
+* [Privacy](https://shift-local.vercel.app/privacy) — Bytes stay in the tab.
+* [Terms](https://shift-local.vercel.app/terms) — Not a studio, not a host.
+* [FAQ](https://shift-local.vercel.app/faq) — Short answers.
+
+## Site
+
+* [Sitemap](https://shift-local.vercel.app/sitemap.xml)
+* [llms.txt](https://shift-local.vercel.app/llms.txt) — This file.
+
+## Not on this origin
+
+* Bytes stay in the tab. There is no conversion API and no `/blogs/` cluster.

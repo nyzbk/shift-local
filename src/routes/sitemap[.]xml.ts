@@ -18,6 +18,7 @@ const URLS: { path: string; changefreq: string; priority: string }[] = [
   { path: "/about", changefreq: "monthly", priority: "0.4" },
   { path: "/privacy", changefreq: "monthly", priority: "0.3" },
   { path: "/terms", changefreq: "monthly", priority: "0.3" },
+  { path: "/llms.txt", changefreq: "monthly", priority: "0.2" },
 ];
 
 export const Route = createFileRoute("/sitemap.xml")({

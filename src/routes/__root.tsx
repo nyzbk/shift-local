@@ -19,6 +19,13 @@ export const Route = createRootRoute({
           "Free WebP and AVIF converter — convert JPG, PNG, WebP and AVIF in your browser. Batch, quality control, ZIP download. No upload, no signup, no watermark.",
       },
       { name: "theme-color", content: "#f3eee4" },
+      { property: "og:type", content: "website" },
+      { property: "og:site_name", content: 'Shift' },
+      { property: "og:image", content: "https://shift-local.vercel.app/og.jpg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://shift-local.vercel.app/og.jpg" },
       { name: "robots", content: "index, follow" },
       { name: "google-adsense-account", content: "ca-pub-7636435144500691" },
       {
