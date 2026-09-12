@@ -1,19 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AppShell } from "@/components/layout/AppShell";
 import { ConvertCta, PageHero, Prose } from "@/components/site/Prose";
+import { articleHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/webp-vs-avif")({
   component: ComparePage,
-  head: () => ({
-    meta: [
-      { title: "WebP vs AVIF — which should you convert to? | Shift" },
-      {
-        name: "description",
-        content:
-          "WebP vs AVIF for still photos: support, size, quality, and why Shift disables AVIF instead of faking encode on phones.",
-      },
-    ],
-  }),
+  head: () =>
+    articleHead({
+      title: "WebP vs AVIF — which should you convert to? | Shift",
+      description:
+        "WebP vs AVIF for still photos: support, size, quality, and why Shift disables AVIF instead of faking encode on phones.",
+      path: "/webp-vs-avif",
+      appName: "WebP vs AVIF",
+    }),
 });
 
 function ComparePage() {

@@ -1,19 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AppShell } from "@/components/layout/AppShell";
 import { ConvertCta, PageHero, Prose } from "@/components/site/Prose";
+import { articleHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/jpg-to-webp")({
   component: JpgToWebpPage,
-  head: () => ({
-    meta: [
-      { title: "JPG to WebP converter in the browser — no upload | Shift" },
-      {
-        name: "description",
-        content:
-          "Convert JPG and JPEG to WebP on this device. Quality control, optional resize, batch ZIP. Files never leave the tab.",
-      },
-    ],
-  }),
+  head: () =>
+    articleHead({
+      title: "JPG to WebP converter in the browser — no upload | Shift",
+      description:
+        "Convert JPG and JPEG to WebP on this device. Quality control, optional resize, batch ZIP. Files never leave the tab.",
+      path: "/jpg-to-webp",
+      appName: "JPG to WebP",
+    }),
 });
 
 function JpgToWebpPage() {

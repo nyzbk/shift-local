@@ -2,19 +2,25 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { AppShell } from "@/components/layout/AppShell";
 import { CompareApp } from "@/components/shift/CompareApp";
 import { ConvertCta, PageHero, Prose } from "@/components/site/Prose";
+import { toolHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/compare")({
   component: ComparePage,
-  head: () => ({
-    meta: [
-      { title: "Weigh WebP and AVIF on this photo — Shift" },
-      {
-        name: "description",
-        content:
-          "Drop one photo. Shift encodes WebP and AVIF at the same quality and max width, then shows the byte table. If AVIF probe fails, WebP vs JPG — no fake .avif.",
-      },
-    ],
-  }),
+  head: () =>
+    toolHead({
+      title: "Weigh WebP and AVIF on this photo — Shift",
+      description:
+        "Drop one photo. Shift encodes WebP and AVIF at the same quality and max width, then shows the byte table. If AVIF probe fails, WebP vs JPG — no fake .avif.",
+      path: "/compare",
+      appName: "Shift compare — WebP vs AVIF",
+      howToName: "How to weigh WebP and AVIF on the same photo",
+      howToSteps: [
+        "Drop one JPG, PNG or WebP. Bytes stay in this tab.",
+        "Shift encodes WebP and AVIF at the same quality and max width.",
+        "If this device cannot write AVIF, the second column is JPG — no fake .avif.",
+        "Read the byte table and download either output.",
+      ],
+    }),
 });
 
 function ComparePage() {

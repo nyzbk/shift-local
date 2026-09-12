@@ -1,19 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AppShell } from "@/components/layout/AppShell";
 import { PageHero, Prose } from "@/components/site/Prose";
+import { legalHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/terms")({
   component: Terms,
-  head: () => ({
-    meta: [
-      { title: "Terms of use — Shift WebP & AVIF converter" },
-      {
-        name: "description",
-        content:
-          "Shift is free, as-is. Conversion quality depends on your browser. AVIF may be disabled. You must have the right to process the files.",
-      },
-    ],
-  }),
+  head: () =>
+    legalHead({
+      title: "Terms of use — Shift WebP & AVIF converter",
+      description:
+        "Shift is free, as-is. Conversion quality depends on your browser. AVIF may be disabled. You must have the right to process the files.",
+      path: "/terms",
+    }),
 });
 
 function Terms() {

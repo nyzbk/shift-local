@@ -1,19 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AppShell } from "@/components/layout/AppShell";
 import { PageHero, Prose } from "@/components/site/Prose";
+import { legalHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/privacy")({
   component: Privacy,
-  head: () => ({
-    meta: [
-      { title: "Privacy — Shift WebP & AVIF converter, no upload" },
-      {
-        name: "description",
-        content:
-          "Shift processes images in your browser. Photos are not uploaded for conversion. AdSense, hosting logs, and how to reach us.",
-      },
-    ],
-  }),
+  head: () =>
+    legalHead({
+      title: "Privacy — Shift WebP & AVIF converter, no upload",
+      description:
+        "Shift processes images in your browser. Photos are not uploaded for conversion. AdSense, hosting logs, and how to reach us.",
+      path: "/privacy",
+    }),
 });
 
 function Privacy() {

@@ -3,19 +3,19 @@ import { AppShell } from "@/components/layout/AppShell";
 import { FaqSection } from "@/components/site/FaqSection";
 import { ConvertCta, PageHero, Prose } from "@/components/site/Prose";
 import { androidFaq } from "@/content/faq";
+import { articleHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/android")({
   component: AndroidPage,
-  head: () => ({
-    meta: [
-      { title: "Android Chrome is not the shop WebView — Shift" },
-      {
-        name: "description",
-        content:
-          "Native AVIF encode on Android often lies. Shift probes magic bytes. Use WebP when the other device is a WebView or an unknown phone.",
-      },
-    ],
-  }),
+  head: () =>
+    articleHead({
+      title: "Android Chrome is not the shop WebView — Shift",
+      description:
+        "Native AVIF encode on Android often lies. Shift probes magic bytes. Use WebP when the other device is a WebView or an unknown phone.",
+      path: "/android",
+      appName: "Android AVIF probe",
+      faqs: androidFaq,
+    }),
 });
 
 function AndroidPage() {

@@ -1,19 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AppShell } from "@/components/layout/AppShell";
 import { PageHero, Prose } from "@/components/site/Prose";
+import { pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
   component: ContactPage,
-  head: () => ({
-    meta: [
-      { title: "Contact Shift — Ultimatum | WebP & AVIF converter" },
-      {
-        name: "description",
-        content:
-          "Email Ultimatum about Shift, the private WebP and AVIF converter. Do not send photos you do not want in a mailbox.",
-      },
-    ],
-  }),
+  head: () =>
+    pageHead(
+      "Contact Shift — Ultimatum | WebP & AVIF converter",
+      "Email Ultimatum about Shift, the private WebP and AVIF converter. Do not send photos you do not want in a mailbox.",
+      "/contact",
+    ),
 });
 
 function ContactPage() {

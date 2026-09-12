@@ -2,26 +2,26 @@ import { createFileRoute } from "@tanstack/react-router";
 import { AppShell } from "@/components/layout/AppShell";
 import { FaqSection } from "@/components/site/FaqSection";
 import { ConvertCta, PageHero, Prose } from "@/components/site/Prose";
-import { JsonLd } from "@/lib/seo";
+import { FAQ } from "@/content/faq";
+import { articleHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/faq")({
   component: FaqPage,
-  head: () => ({
-    meta: [
-      { title: "Shift FAQ — WebP, AVIF, privacy, iPhone, ZIP | Shift" },
-      {
-        name: "description",
-        content:
-          "Answers: no upload, WebP vs AVIF, disabled AVIF on phones, ZIP privacy, HEIC, iPhone Safari, quality slider, AdSense.",
-      },
-    ],
-  }),
+  head: () =>
+    articleHead({
+      title: "Shift FAQ — WebP, AVIF, privacy, iPhone, ZIP | Shift",
+      description:
+        "Answers: no upload, WebP vs AVIF, disabled AVIF on phones, ZIP privacy, HEIC, iPhone Safari, quality slider, AdSense.",
+      path: "/faq",
+      appName: "Shift FAQ",
+      includeApp: false,
+      faqs: FAQ,
+    }),
 });
 
 function FaqPage() {
   return (
     <AppShell>
-      <JsonLd />
       <Prose>
         <PageHero
           kicker="FAQ"

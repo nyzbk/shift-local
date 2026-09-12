@@ -3,19 +3,19 @@ import { AppShell } from "@/components/layout/AppShell";
 import { FaqSection } from "@/components/site/FaqSection";
 import { ConvertCta, PageHero, Prose } from "@/components/site/Prose";
 import { whatsappFaq } from "@/content/faq";
+import { articleHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/whatsapp")({
   component: WhatsAppPage,
-  head: () => ({
-    meta: [
-      { title: "WhatsApp will recode your WebP — Shift" },
-      {
-        name: "description",
-        content:
-          "Photo send recodes frames. AVIF often dies in the chat pipe. Shift writes WebP or AVIF in this tab. Send as a document if the bytes must survive.",
-      },
-    ],
-  }),
+  head: () =>
+    articleHead({
+      title: "WhatsApp will recode your WebP — Shift",
+      description:
+        "Photo send recodes frames. AVIF often dies in the chat pipe. Shift writes WebP or AVIF in this tab. Send as a document if the bytes must survive.",
+      path: "/whatsapp",
+      appName: "WhatsApp and WebP",
+      faqs: whatsappFaq,
+    }),
 });
 
 function WhatsAppPage() {

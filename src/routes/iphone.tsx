@@ -1,19 +1,25 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AppShell } from "@/components/layout/AppShell";
 import { ConvertCta, PageHero, Prose } from "@/components/site/Prose";
+import { articleHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/iphone")({
   component: IphonePage,
-  head: () => ({
-    meta: [
-      { title: "Convert photos to WebP on iPhone Safari — no app store | Shift" },
-      {
-        name: "description",
-        content:
-          "Use Shift in iOS Safari: Choose files, WebP default, honest AVIF badge, Share sheet download. HEIC is a different tool.",
-      },
-    ],
-  }),
+  head: () =>
+    articleHead({
+      title: "Convert photos to WebP on iPhone Safari — no app store | Shift",
+      description:
+        "Use Shift in iOS Safari: Choose files, WebP default, honest AVIF badge, Share sheet download. HEIC is a different tool.",
+      path: "/iphone",
+      appName: "iPhone Safari convert",
+      howToName: "How to convert Camera Roll photos to WebP on iPhone",
+      howToSteps: [
+        "Open Shift in Safari on this iPhone. Use Choose files — drag-and-drop is unreliable on iOS.",
+        "Leave output on WebP. AVIF stays off if the probe says no.",
+        "Tap Convert. Encoding runs in this tab.",
+        "Use the Share sheet into Files or Photos. HEIC is a different tool.",
+      ],
+    }),
 });
 
 function IphonePage() {

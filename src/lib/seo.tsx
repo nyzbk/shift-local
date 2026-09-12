@@ -1,72 +1,225 @@
-import { FAQ } from "@/content/faq";
+import type { FaqItem } from "@/content/faq";
+import { CONTACT_EMAIL, HUB_URL, SITE_NAME, SITE_ORIGIN, absUrl } from "@/lib/site";
 
-export function JsonLd() {
-  const faq = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: FAQ.map((item) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: { "@type": "Answer", text: item.a },
-    })),
-  };
-  const app = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    name: "Shift",
-    url: "https://shift-local.vercel.app",
-    applicationCategory: "MultimediaApplication",
-    operatingSystem: "Any",
-    browserRequirements: "Requires HTML5 Canvas and a modern browser",
-    isAccessibleForFree: true,
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-    description:
-      "Convert JPG, PNG, WebP and AVIF in the browser. Batch, quality control, ZIP download. No upload, no signup, no watermark.",
-    featureList: [
-      "JPG and PNG to WebP",
-      "AVIF encode when the browser can do it honestly",
-      "WebP or AVIF back to JPG or PNG",
-      "Batch ZIP in the tab",
-      "No server upload",
-    ],
-  };
+const OG_IMAGE = absUrl("/og.jpg");
+
+function brandedTitle(title: string) {
+  return /\bShift\b/.test(title) ? title : `${title} | Shift`;
+}
+
+function socialMeta(title: string, description: string, url: string) {
+  return [
+    { property: "og:type", content: "website" },
+    { property: "og:site_name", content: SITE_NAME },
+    { property: "og:locale", content: "en_US" },
+    { property: "og:url", content: url },
+    { property: "og:title", content: title },
+    { property: "og:description", content: description },
+    { property: "og:image", content: OG_IMAGE },
+    { property: "og:image:width", content: "1200" },
+    { property: "og:image:height", content: "630" },
+    { property: "og:image:alt", content: SITE_NAME },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: title },
+    { name: "twitter:description", content: description },
+    { name: "twitter:image", content: OG_IMAGE },
+  ];
+}
+
+const publisher = {
+  "@type": "Organization",
+  name: "Ultimatum",
+  email: CONTACT_EMAIL,
+  url: HUB_URL,
+  sameAs: [HUB_URL],
+};
+
+type JsonLdOpts = {
+  appName: string;
+  path: string;
+  description: string;
+  faqs?: readonly FaqItem[];
+  howToName?: string;
+  howToSteps?: string[];
+  includeApp?: boolean;
+};
+
+export function jsonLdScripts(opts: JsonLdOpts) {
+  const url = absUrl(opts.path);
   const website = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Shift",
-    url: "https://shift-local.vercel.app/",
+    name: SITE_NAME,
+    url: `${SITE_ORIGIN}/`,
+    description:
+      "Convert JPG, PNG, WebP and AVIF in the browser. Batch, quality control, ZIP download. No upload, no signup, no watermark.",
     inLanguage: "en",
+    publisher,
   };
-  const org = {
+  const breadcrumb = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Ultimatum",
-    url: "https://shift-local.vercel.app/about",
-    email: "ultaultimatum@gmail.com",
-  };
-  return (
-    <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(app) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(org) }} />
-    </>
-  );
-}
-
-export function GuideJsonLd() {
-  const data = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: "Convert JPG or PNG to WebP or AVIF in the browser",
-    description: "Use Shift to convert images to WebP or AVIF without uploading files.",
-    totalTime: "PT2M",
-    step: [
-      { "@type": "HowToStep", name: "Choose files", text: "Select JPG, PNG, WebP or AVIF on this device." },
-      { "@type": "HowToStep", name: "Pick output", text: "Choose WebP, AVIF, JPG or PNG and set quality." },
-      { "@type": "HowToStep", name: "Convert", text: "Tap Convert. Encoding runs in the tab." },
-      { "@type": "HowToStep", name: "Download", text: "Save one file or a ZIP. No watermark." },
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Shift",
+        item: `${SITE_ORIGIN}/`,
+      },
+      ...(opts.path !== "/"
+        ? [
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: opts.appName,
+              item: url,
+            },
+          ]
+        : []),
     ],
   };
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />;
+  const scripts: { type: string; children: string }[] = [
+    { type: "application/ld+json", children: JSON.stringify(website) },
+    { type: "application/ld+json", children: JSON.stringify(breadcrumb) },
+  ];
+  if (opts.includeApp !== false) {
+    scripts.push({
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        name: opts.appName,
+        url,
+        applicationCategory: "MultimediaApplication",
+        operatingSystem: "Any",
+        browserRequirements: "Requires HTML5 Canvas and a modern browser",
+        isAccessibleForFree: true,
+        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+        description: opts.description,
+        featureList: [
+          "JPG and PNG to WebP",
+          "AVIF encode when the browser can do it honestly",
+          "WebP or AVIF back to JPG or PNG",
+          "Batch ZIP in the tab",
+          "No server upload",
+        ],
+        publisher,
+        screenshot: OG_IMAGE,
+      }),
+    });
+  }
+  if (opts.faqs?.length) {
+    scripts.push({
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: opts.faqs.map((item) => ({
+          "@type": "Question",
+          name: item.q,
+          acceptedAnswer: { "@type": "Answer", text: item.a },
+        })),
+      }),
+    });
+  }
+  if (opts.howToName && opts.howToSteps?.length) {
+    scripts.push({
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        name: opts.howToName,
+        description: opts.description,
+        totalTime: "PT2M",
+        step: opts.howToSteps.map((text, i) => ({
+          "@type": "HowToStep",
+          position: i + 1,
+          text,
+        })),
+      }),
+    });
+  }
+  return scripts;
+}
+
+function withCanonical(
+  title: string,
+  description: string,
+  path: string,
+  extra?: {
+    appName: string;
+    faqs?: readonly FaqItem[];
+    howToName?: string;
+    howToSteps?: string[];
+    includeApp?: boolean;
+  },
+) {
+  const url = absUrl(path);
+  const fullTitle = brandedTitle(title);
+  return {
+    meta: [
+      { title: fullTitle },
+      { name: "description", content: description },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      ...socialMeta(fullTitle, description, url),
+    ],
+    links: [{ rel: "canonical", href: url }],
+    scripts: extra
+      ? jsonLdScripts({
+          appName: extra.appName,
+          path,
+          description,
+          faqs: extra.faqs,
+          howToName: extra.howToName,
+          howToSteps: extra.howToSteps,
+          includeApp: extra.includeApp,
+        })
+      : [],
+  };
+}
+
+export function toolHead(opts: {
+  title: string;
+  description: string;
+  path: string;
+  appName: string;
+  faqs?: readonly FaqItem[];
+  howToName?: string;
+  howToSteps?: string[];
+}) {
+  return withCanonical(opts.title, opts.description, opts.path, {
+    appName: opts.appName,
+    faqs: opts.faqs,
+    howToName: opts.howToName,
+    howToSteps: opts.howToSteps,
+    includeApp: true,
+  });
+}
+
+export function articleHead(opts: {
+  title: string;
+  description: string;
+  path: string;
+  appName: string;
+  faqs?: readonly FaqItem[];
+  howToName?: string;
+  howToSteps?: string[];
+  includeApp?: boolean;
+}) {
+  return withCanonical(opts.title, opts.description, opts.path, {
+    appName: opts.appName,
+    faqs: opts.faqs,
+    howToName: opts.howToName,
+    howToSteps: opts.howToSteps,
+    includeApp: opts.includeApp ?? false,
+  });
+}
+
+export function legalHead(opts: { title: string; description: string; path: string }) {
+  return withCanonical(opts.title, opts.description, opts.path);
+}
+
+/** Per-page canonical + OG. Path is required so `/` is never left without rel=canonical. */
+export function pageHead(title: string, description: string, path: string) {
+  return articleHead({ title, description, path, appName: title, includeApp: false });
 }

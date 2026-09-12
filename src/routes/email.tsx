@@ -3,19 +3,19 @@ import { AppShell } from "@/components/layout/AppShell";
 import { FaqSection } from "@/components/site/FaqSection";
 import { ConvertCta, PageHero, Prose } from "@/components/site/Prose";
 import { emailFaq } from "@/content/faq";
+import { articleHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/email")({
   component: EmailPage,
-  head: () => ({
-    meta: [
-      { title: "Email a JPG if they must see it — AVIF often stays a download — Shift" },
-      {
-        name: "description",
-        content:
-          "Many mail clients will not paint AVIF in the thread. Gmail’s 25 MB cap is on the message. Shift writes the file in this tab. It does not send mail.",
-      },
-    ],
-  }),
+  head: () =>
+    articleHead({
+      title: "Email a JPG if they must see it — AVIF often stays a download — Shift",
+      description:
+        "Many mail clients will not paint AVIF in the thread. Gmail’s 25 MB cap is on the message. Shift writes the file in this tab. It does not send mail.",
+      path: "/email",
+      appName: "Email and AVIF",
+      faqs: emailFaq,
+    }),
 });
 
 function EmailPage() {

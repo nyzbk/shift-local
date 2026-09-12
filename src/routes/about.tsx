@@ -1,19 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AppShell } from "@/components/layout/AppShell";
 import { PageHero, Prose } from "@/components/site/Prose";
+import { pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
   component: About,
-  head: () => ({
-    meta: [
-      { title: "About Shift — private WebP and AVIF converter | Ultimatum" },
-      {
-        name: "description",
-        content:
-          "Shift converts JPG, PNG, WebP and AVIF in the browser. Built by Ultimatum because upload converters and fake AVIF encode fail people.",
-      },
-    ],
-  }),
+  head: () =>
+    pageHead(
+      "About Shift — private WebP and AVIF converter | Ultimatum",
+      "Shift converts JPG, PNG, WebP and AVIF in the browser. Built by Ultimatum because upload converters and fake AVIF encode fail people.",
+      "/about",
+    ),
 });
 
 function About() {

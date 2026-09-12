@@ -1,19 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AppShell } from "@/components/layout/AppShell";
 import { ConvertCta, PageHero, Prose } from "@/components/site/Prose";
+import { articleHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/avif-to-jpg")({
   component: AvifToJpgPage,
-  head: () => ({
-    meta: [
-      { title: "AVIF to JPG converter — open AVIF as JPEG in the browser | Shift" },
-      {
-        name: "description",
-        content:
-          "Convert AVIF back to JPG or PNG without uploading. Native decode first, WASM fallback if this browser cannot open the AVIF.",
-      },
-    ],
-  }),
+  head: () =>
+    articleHead({
+      title: "AVIF to JPG converter — open AVIF as JPEG in the browser | Shift",
+      description:
+        "Convert AVIF back to JPG or PNG without uploading. Native decode first, WASM fallback if this browser cannot open the AVIF.",
+      path: "/avif-to-jpg",
+      appName: "AVIF to JPG",
+    }),
 });
 
 function AvifToJpgPage() {

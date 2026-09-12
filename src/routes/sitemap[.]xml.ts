@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { CONTENT_LASTMOD, SITE_ORIGIN } from "@/lib/site";
 
-const ORIGIN = "https://shift-local.vercel.app";
-const lastmod = "2026-09-10";
 const URLS: { path: string; changefreq: string; priority: string }[] = [
   { path: "/", changefreq: "weekly", priority: "1.0" },
   { path: "/guide", changefreq: "weekly", priority: "0.9" },
@@ -18,7 +17,6 @@ const URLS: { path: string; changefreq: string; priority: string }[] = [
   { path: "/about", changefreq: "monthly", priority: "0.4" },
   { path: "/privacy", changefreq: "monthly", priority: "0.3" },
   { path: "/terms", changefreq: "monthly", priority: "0.3" },
-  { path: "/llms.txt", changefreq: "monthly", priority: "0.2" },
 ];
 
 export const Route = createFileRoute("/sitemap.xml")({
@@ -29,8 +27,8 @@ export const Route = createFileRoute("/sitemap.xml")({
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${URLS.map(
   (item) => `  <url>
-    <loc>${ORIGIN}${item.path === "/" ? "/" : item.path}</loc>
-    <lastmod>${lastmod}</lastmod>
+    <loc>${SITE_ORIGIN}${item.path === "/" ? "/" : item.path}</loc>
+    <lastmod>${CONTENT_LASTMOD}</lastmod>
     <changefreq>${item.changefreq}</changefreq>
     <priority>${item.priority}</priority>
   </url>`,

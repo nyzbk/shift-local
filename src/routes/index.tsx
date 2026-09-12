@@ -5,14 +5,36 @@ import { HowItWorks } from "@/components/site/HowItWorks";
 import { FaqSection } from "@/components/site/FaqSection";
 import { SoftAgencyCta } from "@/components/ads/SoftAgencyCta";
 import { AdUnit } from "@/components/ads/AdUnit";
-import { JsonLd } from "@/lib/seo";
+import { FAQ } from "@/content/faq";
+import { toolHead } from "@/lib/seo";
 
-export const Route = createFileRoute("/")({ component: Home });
+const HOME_TITLE = "Free WebP & AVIF Converter — Convert JPG PNG Online, No Upload | Shift";
+const HOME_DESC =
+  "Free WebP and AVIF converter — convert JPG, PNG, WebP and AVIF in your browser. Batch, quality control, ZIP download. No upload, no signup, no watermark.";
+const HOME_STEPS = [
+  "Select JPG, PNG, WebP or AVIF on this device. Bytes stay in this tab.",
+  "Pick WebP, AVIF, JPG or PNG and set quality. Cap width if the destination is small.",
+  "Tap Convert. Encoding runs in the tab. AVIF is disabled if the probe fails.",
+  "Download one file or a ZIP. Closing the tab discards the bitmaps.",
+];
+
+export const Route = createFileRoute("/")({
+  component: Home,
+  head: () =>
+    toolHead({
+      title: HOME_TITLE,
+      description: HOME_DESC,
+      path: "/",
+      appName: "Shift — Free WebP & AVIF Converter",
+      faqs: FAQ.slice(0, 4),
+      howToName: "How to convert JPG or PNG to WebP or AVIF in the browser",
+      howToSteps: HOME_STEPS,
+    }),
+});
 
 function Home() {
   return (
     <AppShell>
-      <JsonLd />
       <main className="mx-auto max-w-3xl px-4 py-10">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-copper">Private · in your browser</p>
         <h1 className="mt-3 font-display text-4xl leading-tight sm:text-5xl">

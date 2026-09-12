@@ -1,27 +1,31 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AppShell } from "@/components/layout/AppShell";
 import { ConvertCta, PageHero, Prose } from "@/components/site/Prose";
-import { GuideJsonLd } from "@/lib/seo";
+import { articleHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/guide")({
   component: GuidePage,
-  head: () => ({
-    meta: [
-      { title: "How to convert JPG to WebP or AVIF in your browser | Shift" },
-      {
-        name: "description",
-        content:
-          "Step-by-step: convert JPG and PNG to WebP or AVIF without uploading. Quality slider, max size, batch ZIP, iPhone Safari notes.",
-      },
-    ],
-  }),
+  head: () =>
+    articleHead({
+      title: "How to convert JPG to WebP or AVIF in your browser | Shift",
+      description:
+        "Step-by-step: convert JPG and PNG to WebP or AVIF without uploading. Quality slider, max size, batch ZIP, iPhone Safari notes.",
+      path: "/guide",
+      appName: "How to convert with Shift",
+      howToName: "Convert JPG or PNG to WebP or AVIF in the browser",
+      howToSteps: [
+        "Select JPG, PNG, WebP or AVIF on this device.",
+        "Choose WebP, AVIF, JPG or PNG and set quality.",
+        "Tap Convert. Encoding runs in the tab.",
+        "Save one file or a ZIP. No watermark.",
+      ],
+    }),
 });
 
 function GuidePage() {
   return (
     <AppShell>
       <Prose>
-        <GuideJsonLd />
         <PageHero
           kicker="Guide"
           title="How to convert images to WebP or AVIF without uploading"
