@@ -1,9 +1,10 @@
 export function SoftAgencyCta() {
   return (
     <section className="mx-auto max-w-3xl px-4 py-10 text-center">
-      <p className="font-display text-xl text-ink text-balance">Need a brand people actually want?</p>
+      <p className="font-display text-xl text-ink text-balance">Need the rest of the local-first tools?</p>
       <p className="mt-2 text-sm text-muted text-pretty">
-        Shift is a free tool from Ultimatum. We also build brand identity, private utilities, and $10k websites.
+        Shift is a free WebP and AVIF converter from Ultimatum. Other utilities that keep files on the device live on
+        the hub.
       </p>
       <a
         href="https://ultimatum-hub.vercel.app/"

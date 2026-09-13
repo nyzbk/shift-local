@@ -20,7 +20,7 @@ function About() {
         <PageHero
           kicker="About"
           title="About Shift"
-          lead="A free WebP and AVIF converter that stays on the device. Made by Ultimatum, a brand-marketing studio."
+          lead="A free WebP and AVIF converter that stays on the device. Operated by Ultimatum."
         />
         <p>
           Shift exists because the default “convert to WebP” result on the web is still an upload form. That is a bad
@@ -41,10 +41,10 @@ function About() {
         </p>
         <h2>Who makes it</h2>
         <p>
-          Ultimatum is a brand-marketing studio. We ship small private utilities next to client work because the
-          public tools for “just change the codec” were either upload farms or dishonest about AVIF. Publisher ID for
-          this property is <code>ca-pub-7636435144500691</code>. Contact:{" "}
-          <a href="mailto:ultaultimatum@gmail.com">ultaultimatum@gmail.com</a>. Studio home:{" "}
+          Ultimatum operates Shift. We ship small private utilities next to client work because the public tools for
+          “just change the codec” were either upload farms or dishonest about AVIF. Publisher ID for this property is{" "}
+          <code>ca-pub-7636435144500691</code>. Contact:{" "}
+          <a href="mailto:ultaultimatum@gmail.com">ultaultimatum@gmail.com</a>. Hub:{" "}
           <a href="https://ultimatum-hub.vercel.app/">Ultimatum hub</a>.
         </p>
         <p>

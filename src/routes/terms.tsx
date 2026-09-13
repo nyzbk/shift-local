@@ -37,15 +37,17 @@ function Terms() {
           around 25 MB, refusal around 80 MB). That is to keep the tab alive, not to sell a plan.
         </p>
         <p>
-          Ads, when live, are served by Google AdSense under Google’s policies. Studio notes on this site are not
-          advertisements. The converter works with ads off. Clicking your own ads is not allowed.
+          Ads, when live, are served by Google AdSense under Google’s policies. Notes about Ultimatum on this site are
+          not advertisements. The converter works with ads off. Clicking your own ads is not allowed.
         </p>
         <p>
           Shift does not store files, does not guarantee a smaller output, and does not promise that a given phone can
           encode AVIF. If a convert fails, try WebP or another device. There is no service-level agreement.
         </p>
         <p>
-          Questions: <Link to="/contact">Contact</Link>. Privacy details: <Link to="/privacy">Privacy</Link>.
+          Questions: <Link to="/contact">Contact</Link> or{" "}
+          <a href="mailto:ultaultimatum@gmail.com">ultaultimatum@gmail.com</a>. Privacy details:{" "}
+          <Link to="/privacy">Privacy</Link>.
         </p>
       </Prose>
     </AppShell>

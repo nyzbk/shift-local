@@ -39,8 +39,9 @@ function Privacy() {
             photos.
           </li>
           <li>
-            <strong>Advertising:</strong> Google AdSense (publisher ca-pub-7636435144500691) may set cookies after the
-            site is approved. Ads are not fed your images. See{" "}
+            <strong>Advertising:</strong> Advertising partners (e.g. Google AdSense, publisher
+            ca-pub-7636435144500691) may set cookies or similar storage after the site is approved, for ad serving and
+            measurement. Ads are not fed your images. See{" "}
             <a href="https://policies.google.com/privacy">Google Privacy & Terms</a>.
           </li>
         </ul>

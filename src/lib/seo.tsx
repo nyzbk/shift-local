@@ -216,7 +216,7 @@ export function articleHead(opts: {
 }
 
 export function legalHead(opts: { title: string; description: string; path: string }) {
-  return withCanonical(opts.title, opts.description, opts.path);
+  return pageHead(opts.title, opts.description, opts.path);
 }
 
 /** Per-page canonical + OG. Path is required so `/` is never left without rel=canonical. */
